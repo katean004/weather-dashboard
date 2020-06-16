@@ -1,0 +1,18 @@
+.container {
+    margin-top: 50px;
+}
+
+.city {
+    font-size: large;
+    font-weight: 500;
+}
+
+.list-group {
+    margin-top: 10px;
+}
+
+.search-container {
+    background-color: rgb(87, 171, 182);
+    padding-bottom: 15px;
+    padding-top: 10px;
+}

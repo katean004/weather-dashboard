@@ -6,7 +6,7 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    <script src="assets/script.js"></script>
+    
 </head>
 <body>
     <!-- Header -->
@@ -19,22 +19,42 @@
         <div class="row">
             <div class="col-md-4 search-container">
                 <!-- search bar -->
-                <div>
-                    <label for="validationDefault03" class="city">Search for a City: </label>
-                    <input type="text" class="form-control" id="validationDefault03" required>
+                <div class="row">
+                    <div class="col-md-8">
+
+                        <!-- <label for="validationDefault03" class="city">Search for a City: </label> -->
+                        <input placeholder="Search for a city" type="text" class="form-control cityInput" id="validationDefault03" required>
+                    </div>
+                    <button type="button" id="searchBtn" class="btn btn-dark col-md-4">Dark</button>
+                    
                 </div>
                 <!-- city list -->
-                <ul class="list-group">
-                    <li class="list-group-item disabled" aria-disabled="true">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Morbi leo risus</li>
-                    <li class="list-group-item">Porta ac consectetur ac</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
+                <ul class="list-group city-list">
+                    <li class="list-group-item disabled" aria-disabled="true">City 1</li>
+                    <li class="list-group-item">City 2</li>
+                    <li class="list-group-item">City 3</li>
+                    <li class="list-group-item">City 4</li>
+                    <li class="list-group-item">City 5</li>
                   </ul>
             </div>
+            <div class="col-md-8 border main-city-content">
+                <div class="city-name"><h3>Main City Name (Date)</h3></div>
+                <div class="temperature"></div>
+                <div class="humidity"></div>
+                <div class="wind-speed"></div>
+                <div class="uv-index"></div>
+                <h3>5 Day Forecast: </h3>
+
+            </div>
         </div>
+
+
+
     </div>
 
+    <!-- Main city info -->
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="assets/script.js"></script>
 </body>
 </html>

@@ -9,6 +9,7 @@ var oneDayUvIndex = $(".uv-index");
 var cityName = $(".city-name");
 var weatherIcon = $(".icon");
 var date = $(".date");
+var cardsContainer = $(".cards-container");
 
 // 5 day weather forecast variables
 var day1Img = $(".day1-img");
@@ -35,11 +36,15 @@ var day3 = $(".date3");
 var day4 = $(".date4");
 var day5 = $(".date5");
 
-
+// hide 5 day forecast cards
+cardsContainer.hide();
 
 // when city search button clicks it runs ajax calls
 searchBtn.click(function(){
 var cityToSearch= cityInput.val();
+
+// show 5 day forecast cards
+cardsContainer.show();
 
 // url and apikey for main weather api
 var queryURL = "https://api.openweathermap.org/data/2.5/weather?q="+ cityToSearch + "&appid=" + apikey + "&units=imperial";
@@ -172,7 +177,7 @@ $.ajax({
     var hum4 = fiveDay.list[26].main.humidity;
     var hum5 = fiveDay.list[34].main.humidity;
 
-    
+
     //display humdity
     day1Hum.text("Humidity: " + hum1 + "%");
     day2Hum.text("Humidity: " + hum2 + "%");

@@ -10,6 +10,8 @@ var cityName = $(".city-name");
 var weatherIcon = $(".icon");
 var date = $(".date");
 var cardsContainer = $(".cards-container");
+var cities = $(".cities");
+var savedCities = [];
 
 // 5 day weather forecast variables
 var day1Img = $(".day1-img");
@@ -43,6 +45,17 @@ cardsContainer.hide();
 searchBtn.click(function(){
 var cityToSearch= cityInput.val();
 
+
+
+// store city inputs
+localStorage.setItem("savedCity", JSON.stringify(cityToSearch));
+
+var savedCity = JSON.parse(localStorage.getItem("savedCity"));
+
+cities.text(savedCity);
+
+
+
 // show 5 day forecast cards
 cardsContainer.show();
 
@@ -54,7 +67,6 @@ $.ajax({
     url: queryURL,
     method: "GET"
 }).then(function(data){
-    console.log(data);
 
     // display temp, wind speed, humidity, and city name for main weather
     oneDayTemperature.text("Temp: "+data.main.temp);
@@ -101,7 +113,6 @@ $.ajax({
     url: fiveDayUrl,
     method: "GET"
 }).then(function(fiveDay){
-    console.log(fiveDay);
 
     //dates for each of the 5 days
     var firstDay = fiveDay.list[2].dt_txt;

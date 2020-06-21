@@ -6,7 +6,6 @@
     <title>Weather Dashboard</title>
     <link rel="stylesheet" href="assets/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
-    
 </head>
 <body>
     <!-- Header -->
@@ -22,39 +21,89 @@
                 <div class="row">
                     <div class="col-md-8">
 
-                        <!-- <label for="validationDefault03" class="city">Search for a City: </label> -->
-                        <input placeholder="Search for a city" type="text" class="form-control cityInput" id="validationDefault03" required>
+                    <!-- <label for="validationDefault03" class="city">Search for a City: </label> -->
+                    <input placeholder="Search for a city" type="text" class="form-control cityInput" id="validationDefault03" required>
                     </div>
-                    <button type="button" id="searchBtn" class="btn btn-dark col-md-4">Dark</button>
+                    <button type="button" id="searchBtn" class="btn btn-dark col-md-4">Search</button>
                     
                 </div>
                 <!-- city list -->
                 <ul class="list-group city-list">
                     <li class="list-group-item disabled" aria-disabled="true">City 1</li>
                     <li class="list-group-item">City 2</li>
-                    <li class="list-group-item">City 3</li>
-                    <li class="list-group-item">City 4</li>
-                    <li class="list-group-item">City 5</li>
+
                   </ul>
             </div>
             <div class="col-md-8 border main-city-content">
-                <div class="city-name"><h3>Main City Name (Date)</h3></div>
+                <div><h3 class="city-name"></h3></div>
+                <div class="date"></div>
+                <div class="icon"></div>
                 <div class="temperature"></div>
                 <div class="humidity"></div>
                 <div class="wind-speed"></div>
                 <div class="uv-index"></div>
-                <h3>5 Day Forecast: </h3>
-
-            </div>
+            </div>  
         </div>
-
-
-
     </div>
 
-    <!-- Main city info -->
+    <!-- 5 day forecast cards -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
 
+                <h3 class="fiveDayForecast">5 Day Forecast: </h3>
+
+                <div class="card-deck">
+                    <div class="card">
+                       <div class="card-body">
+                          <p class="card-title date1">Day 1</p>
+                          <div class="day1-img"></div>
+                          <p class="card-text day1-temp">Temp</p>
+                          <p class="card-text day1-humidity">Humidity</p>
+                       </div>
+                    </div>
+          
+                    <div class="card">
+                      <div class="card-body">
+                          <p class="card-title date2">Day 2</p>
+                          <div class="day2-img"></div>
+                          <p class="card-text day2-temp">Temp</p>
+                          <p class="card-text day2-humidity">Humidity</p>                      </div>
+                    </div>
+          
+                    <div class="card">
+                      <div class="card-body">
+                         <p class="card-title date3">Day 3</p>
+                         <div class="day3-img"></div>
+                         <p class="card-text day3-temp">Temp</p>
+                         <p class="card-text day3-humidity">Humidity</p>                       </div>
+                     </div>
+          
+                    <div class="card">
+                      <div class="card-body">
+                         <p class="card-title date4">Day 4</p>
+                         <div class="day4-img"></div>
+                         <p class="card-text day4-temp">Temp</p>
+                         <p class="card-text day4-humidity">Humidity</p>                      </div>
+                     </div>
+          
+                    <div class="card">
+                      <div class="card-body">
+                        <p class="card-title date5">Day 5</p>
+                        <div class="day5-img"></div>
+                        <p class="card-text day5-temp">Temp</p>
+                        <p class="card-text day5-humidity">Humidity</p>                       </div>
+                     </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+
+
+ 
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 </body>
 </html>

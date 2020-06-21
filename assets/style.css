@@ -17,7 +17,31 @@
     padding-top: 10px;
 }
 
-.main-city-content {
-    
-    
+.city-name{
+    font-weight: 600;
+}
+
+.uv-index{
+    color: brown;
+    font-weight: 625;
+}
+
+.date1{
+    font-weight: 600;
+}
+
+.date2{
+    font-weight: 600;
+}
+
+.date3{
+    font-weight: 600;
+}
+
+.date4{
+    font-weight: 600;
+}
+
+.date5{
+    font-weight: 600;
 }

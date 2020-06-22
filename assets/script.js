@@ -78,7 +78,6 @@ if(cityToSearch !== ""){
     citiesList.prepend(bt);
 
     savedCities.push(cityToSearch);
-    console.log(savedCities);
     localStorage.setItem("savedCityList", JSON.stringify(savedCities));
 }
 

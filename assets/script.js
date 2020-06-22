@@ -13,6 +13,8 @@ var cardsContainer = $(".cards-container");
 var cities = $(".cities");
 var citiesList = $(".city-list");
 var savedCities = [];
+var uvIndexLevel = "";
+var uvRisk = $(".uvRisk");
 
 // 5 day weather forecast variables
 var day1Img = $(".day1-img");
@@ -138,7 +140,31 @@ function oneDayAjax(city){
             url: UVurl,
             method: "GET"
         }).then(function (response) {
-            oneDayUvIndex.text("UV-Index: " + response.value); //display UV index on main weather
+
+            // UV index risk levels
+            if(response.value > 0 && response.value < 2){
+                oneDayUvIndex.text("UV-Index: " + response.value);
+                uvRisk.text("(Low Risk)").css("color","green");
+
+            }else if(response.value > 3 && response.value < 5){
+                oneDayUvIndex.text("UV-Index: " + response.value);
+                uvRisk.text("(Moderate Risk)").css("color","orange");
+
+            }
+            else if(response.value > 6 && response.value < 7){
+                oneDayUvIndex.text("UV-Index: " + response.value);
+                uvRisk.text("(High Risk)").css("color","red");
+
+            }else if(response.value > 8 && response.value < 10){
+                oneDayUvIndex.text("UV-Index: " + response.value + " (Very High Risk)");
+                uvRisk.text("(Very High Risk").css("color","red");
+
+            }else{
+                oneDayUvIndex.text("UV-Index: " + response.value);
+                uvRisk.text("(Very High Risk)").css("color","red");
+
+            }
+
         });
     });
 }

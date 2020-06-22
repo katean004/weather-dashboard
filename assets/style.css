@@ -7,6 +7,10 @@
     font-weight: 500;
 }
 
+.uvRisk{
+    font-weight: 500;
+}
+
 .list-group {
     margin-top: 10px;
 }
@@ -22,7 +26,6 @@
 }
 
 .uv-index{
-    color: brown;
     font-weight: 625;
 }
 

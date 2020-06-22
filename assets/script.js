@@ -41,61 +41,64 @@ var day5 = $(".date5");
 
 // hide 5 day forecast cards
 cardsContainer.hide();
+
+//store array of cities
 var savedCity = JSON.parse(localStorage.getItem("savedCityList"));
-console.log(savedCity);
 
-
+//if local storage is not empty then create buttons for the cities in the array
 if (savedCity !== null) {
 
-
-
     for (var i = 0; i < savedCity.length; i++) {
-        var li = $("<li>");
-        li.attr("class", "list-group-item disabled cities");
-        li.attr("aria-disabled", "true");
-        li.text(savedCity[i]);
-        citiesList.prepend(li)
+        var bt = $("<button>");
+        bt.attr("class", "btn btn-light btn-block cities");
+        bt.attr("type", "button");
+
+        // bt.attr("aria-disabled", "true");
+        bt.text(savedCity[i]);
+        citiesList.prepend(bt)
         savedCities.push(savedCity[i])
     }
 }
+
+
 // when city search button clicks it runs ajax calls
 searchBtn.click(function () {
     var cityToSearch = cityInput.val();
-    cityInput.val("");
+    cityInput.val(""); //empty input upon search button click
 
 
-    // store city inputs
-    // localStorage.setItem("savedCity", JSON.stringify(cityToSearch));
-
-   
+//if input is not empty then store create buttons
 if(cityToSearch !== ""){
-    var li = $("<li>");
-    li.attr("class", "list-group-item disabled cities");
-    li.attr("aria-disabled", "true");
-    li.text(cityToSearch);
-    citiesList.prepend(li);
+    var bt = $("<button>");
+    bt.attr("class", "btn btn-light btn-block cities");
+    bt.attr("type", "button");
+
+    // bt.attr("aria-disabled", "true");
+    bt.text(cityToSearch);
+    citiesList.prepend(bt);
 
     savedCities.push(cityToSearch);
     console.log(savedCities);
     localStorage.setItem("savedCityList", JSON.stringify(savedCities));
 }
 
-    // show 5 day forecast cards
-    cardsContainer.show();
+    //run main weather ajax and five day forecast ajax
+    oneDayAjax(cityToSearch);
+    fiveDayAjax(cityToSearch);
 
-    // url and apikey for main weather api
-  
-oneDayAjax(cityToSearch)
-    // get 5 day weather forecast api
-  fiveDayAjax(cityToSearch)
 });
 
-// $(".cities").click(function(){
-//     console.log($(this).val());
-    
-// });
+//when cities in the list are clicked run them through the main weather ajax and five day forecast ajax calls
+$(".cities").click(function(){
+    var cityClicked = $(this).text();
+    oneDayAjax(cityClicked);
+    fiveDayAjax(cityClicked);
+});
 
+
+//main weather function
 function oneDayAjax(city){
+    
     var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=" + apikey + "&units=imperial";
 
     // ajax call for main weather api
@@ -138,13 +141,15 @@ function oneDayAjax(city){
         }).then(function (response) {
             oneDayUvIndex.text("UV-Index: " + response.value); //display UV index on main weather
         });
+    });
+}
 
-    })
-
-   }
-
-   function fiveDayAjax(city){
+// five day weather forecast function
+// Array values will be updated in the future so it's not hardcoded to a certain time...
+function fiveDayAjax(city){
     var fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + city + "&appid=" + apikey + "&units=imperial";
+
+    cardsContainer.show();
 
     $.ajax({
         url: fiveDayUrl,
@@ -233,14 +238,9 @@ function oneDayAjax(city){
         day4Hum.text("Humidity: " + hum4 + "%");
         day5Hum.text("Humidity: " + hum5 + "%");
 
+    });
 
-        // 9AM is list[1], 12PM is list[2], 3pm is list[3], 6PM is list[4], 9PM is list[5], midnight is list[6]
-        // If I want everyday at noon then I want: 
-        // DAY1: list[2], DAY2: list[10], DAY3: list[18], DAY4: list[26], DAY5: list[34]
-
-    })
-
-   }
+}
 
 
 

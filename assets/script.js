@@ -157,7 +157,7 @@ function oneDayAjax(city){
                 uvRisk.text("(High Risk)").css("color","red");
 
             }else if(response.value > 8 && response.value < 10){
-                oneDayUvIndex.text("UV-Index: " + response.value + " (Very High Risk)");
+                oneDayUvIndex.text("UV-Index: " + response.value);
                 uvRisk.text("(Very High Risk)").css("color","red");
 
             }else{

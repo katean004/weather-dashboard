@@ -92,6 +92,7 @@ if(cityToSearch !== ""){
 //when cities in the list are clicked run them through the main weather ajax and five day forecast ajax calls
 $(".cities").click(function(){
     var cityClicked = $(this).text();
+    console.log(cityClicked);
     oneDayAjax(cityClicked);
     fiveDayAjax(cityClicked);
 });
@@ -157,7 +158,7 @@ function oneDayAjax(city){
 
             }else if(response.value > 8 && response.value < 10){
                 oneDayUvIndex.text("UV-Index: " + response.value + " (Very High Risk)");
-                uvRisk.text("(Very High Risk").css("color","red");
+                uvRisk.text("(Very High Risk)").css("color","red");
 
             }else{
                 oneDayUvIndex.text("UV-Index: " + response.value);
